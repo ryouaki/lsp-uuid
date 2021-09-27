@@ -1,0 +1,45 @@
+{
+  "name": "lsp-uuid",
+  "version": "1.0.0",
+  "description": "A uuid generator for both Browser and Nodejs. And keep sequence and get the time when uuid be created.",
+  "main": "index.js",
+  "module": "dist/lsp-uuid.umd.js",
+  "scripts": {
+    "test": "jest",
+    "dev": "jest --watch",
+    "build": "webpack --config webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ryouaki/lsp-uuid.git"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.13.12",
+    "babel-loader": "^8.2.2",
+    "jest": "^26.6.3",
+    "webpack": "^5.30.0",
+    "webpack-cli": "^4.6.0"
+  },
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "files": [
+    "index.js",
+    "package.json",
+    "LICENSE",
+    "README.md",
+    "dist"
+  ],
+  "keywords": [
+    "uuid",
+    "browser",
+    "nodejs",
+    "sequence"
+  ],
+  "author": "ryouaki (46517115@qq.com)",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/ryouaki/lsp-uuid/issues"
+  },
+  "homepage": "https://github.com/ryouaki/lsp-uuid#readme"
+}
