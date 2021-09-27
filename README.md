@@ -1,5 +1,5 @@
 # lsp-uuid
-A uuid generator based on `SnowFlake` for both Browser and Nodejs. And keep sequence and can be deserialized.
+A uuid generator based on `SnowFlake` for both Browser and Nodejs. Keep sequence and can be deserialized.
 
 ## Why lsp-uuid
 lsp-uuid has this features below:
