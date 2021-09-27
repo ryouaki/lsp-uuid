@@ -19,25 +19,27 @@ lsp-uuid has this features below:
 
 ### Using Browser
 ```html
-    <script src="https://unpkg.com/lsp-uuid@1.0.0/dist/lsp-uuid.umd.js"></script>
+    <script src="https://unpkg.com/lsp-uuid@1.0.1/dist/lsp-uuid.umd.js"></script>
 ```
 
 ### For es module
 ```js
     import { uuid, parseUUID } from 'lsp-uuid'
 
-    parseUUID(uuid())
+    const id = uuid() // 5f095641fe00000
+    parseUUID(id) // {flg: 0, timestamp: 1632714164216, count: 0}
 ```
 
 ## For CDN and Browser
 ```html
     <html>
-    <script src="https://unpkg.com/lsp-uuid@1.0.0/dist/lsp-uuid.umd.js"></script>
+    <script src="https://unpkg.com/lsp-uuid@1.0.1/dist/lsp-uuid.umd.js"></script>
     <script>
       
     </script>
     <body>
-        lspUUID.parseUUID(lspUUID.uuid())
+        const id = lspUUID.uuid() // 5f095641fe00000
+        lspUUID.parseUUID(id) // {flg: 0, timestamp: 1632714164216, count: 0}
     </body>
   </html>
 ```

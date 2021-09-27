@@ -12,7 +12,7 @@ function leftZero(src, size) {
 let count = 0
 let lastTime = 0
 function uuid(st) {
-    let now = st !== undefined ? st : Date.now()
+    let now = (st !== undefined) ? st : Date.now();
     let n = now.toString(2)
     if (n.length < BASE_LENGTH) {
         n = leftZero(n, BASE_LENGTH)
