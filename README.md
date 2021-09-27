@@ -7,6 +7,8 @@ lsp-uuid has this features below:
 - keep sequence
 - id‘s length is 15. less than others.
 - can be deserialized
+- no dependencies
+- only 1.5kb
 
 ## How to use
 
