@@ -1,43 +1,44 @@
-// const {uuid} = require('./index');
+let now = Date.now()
+let data = Date.now()
 
-// let now = Date.now()
+for (let i = 0; i < 10000 * 10000; i++) {
+  data.toString(16)
+}
+console.log(Date.now() - now)
+function trans(x) {
 
-// for (let i = 0; i < 10000 * 10000; i++) {
-//   uuid()
-// }
-
-// console.log(Date.now() - now)
-
-
-function NtoB(t) {
-  let arr = ''
-  let n = t
-
-  while (n > 0) {
-    let o = n % 2
-    arr += o
-    if (n > 2000000000) {
-      n = n / 2
-    } else {
-      n = n >> 1
+}
+now = Date.now()
+let n = data;
+let m = []
+for (let i = 0; i < 10000 * 10000; i++) {
+  while(n > 0) {
+    let a = n % 16;
+    n = (n - a)/16;
+    switch(a) {
+      case 10:
+        m.push('A');
+        break;
+      case 11:
+        m.push('B');
+        break;
+      case 12:
+        m.push('C');
+        break;
+      case 13:
+        m.push('D');
+        break;
+      case 14:
+        m.push('E');
+        break;
+      case 15:
+        m.push('F');
+        break;
+      default:
+        m.push(a + '')
     }
   }
-
-  return arr
-}
-
-let now1 = Date.now()
-for (let i = 0; i < 1000*1000; i++) {
-  NtoB(Date.now())
-}
-console.log(Date.now() - now1)
-
-let now = Date.now()
-for (let i = 0; i < 1000*1000; i++) {
-  Number(Date.now()).toString(2)
 }
 console.log(Date.now() - now)
 
-console.log(NtoB(now), Number(now).toString(2))
-// console.log(Number(t).toString(2))
-// console.log()
+console.log(data.toString(16), m.reverse().join(''))
