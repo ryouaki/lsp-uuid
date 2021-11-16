@@ -1,14 +1,14 @@
 # lsp-uuid
-A uuid generator based on `SnowFlake` for both Browser and Nodejs. Keep sequence and can be deserialized.
+A powerful, fast and small uuid generator based on `SnowFlake` for both Browser and Nodejs. Keep sequence and can be deserialized.
 
 ## Why lsp-uuid
 lsp-uuid has this features below:
-- up to 262143 different ids in one second;
+- up to 65535 different ids in one second;
 - keep sequence
 - id‘s length is 15. less than others.
 - can be deserialized
 - no dependencies
-- less than 1kb
+- less than 1.25kb
 
 ## How to use
 
