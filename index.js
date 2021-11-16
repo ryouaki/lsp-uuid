@@ -13,7 +13,11 @@ let count = 0
 let lastTime = 0
 function uuid(st) {
     let now = (st !== undefined) ? st : Date.now();
+    if (typeof now != 'number') {
+        throw new Error('St must be a Number!')
+    }
     let n = now.toString(2)
+
     if (n.length < BASE_LENGTH) {
         n = leftZero(n, BASE_LENGTH)
     }
@@ -62,3 +66,10 @@ module.exports = {
     uuid: uuid,
     parseUUID: parseUUID
 }
+
+// 计数器
+// function now(){
+//     var time = Date.now();
+//     var last = now.last || time;
+//     return now.last = time > last ? time : last + 1;
+// }

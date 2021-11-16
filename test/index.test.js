@@ -9,6 +9,14 @@ describe("uuid test", () => {
     it("Generate test 2", () => {
         expect(uuid(Date.now())).toHaveLength(15)
     })
+
+    if("Arguments test", () => {
+        try {
+            uuid("111")
+        } catch(e) {
+            expect(e.message).toBe('St must be a Number!')
+        }
+    })
     
     it("parseUUID test 3", () => {
         const target = parseUUID(uuid())
