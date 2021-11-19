@@ -1,59 +1,5 @@
-const BASE_LENGTH = 11
-const COUNT_LENGTH = 4
-const COUNT_MAX = 65535 // 0xffff
-
-function int2Hex(t) {
-    let n = t;
-    const m = [];
-    while(n > 0) {
-        let a = n % 16;
-        n = (n - a)/16;
-        switch(a) {
-          case 10:
-            m.push('A');
-            break;
-          case 11:
-            m.push('B');
-            break;
-          case 12:
-            m.push('C');
-            break;
-          case 13:
-            m.push('D');
-            break;
-          case 14:
-            m.push('E');
-            break;
-          case 15:
-            m.push('F');
-            break;
-          default:
-            m.push(a + '');
-        }
-    }
-    return m.reverse().join('');
-}
-
-function hex2Int(hex) {
-    let len = hex.length
-    let a = new Array(len)
-    let code = '';
-    for (let i = 0; i < len; i++) {
-        code = hex.charCodeAt(i);
-        if (48<=code && code < 58) {
-            code -= 48;
-        } else {
-            code = (code & 0xdf) - 65 + 10;
-        }
-        a[i] = code;
-    }
-     
-    return a.reduce(function(acc, c) {
-        acc = 16 * acc + c;
-        return acc;
-    }, 0);
-}
-
+const BASE_LENGTH = 41
+const COUNT_LENGTH = 18
 function leftZero(src, size) {
     let target = ''
     for (let i = 0; i < size; i++) {
@@ -61,48 +7,59 @@ function leftZero(src, size) {
     }
     return target + src
 }
-
 let count = 0
 let lastTime = 0
-
 function uuid(st) {
     let now = (st !== undefined) ? st : Date.now();
-    if (typeof now != 'number') {
-        throw new Error('St must be a Number!')
-    }
-    let n = int2Hex(now);
-
+    let n = now.toString(2)
     if (n.length < BASE_LENGTH) {
         n = leftZero(n, BASE_LENGTH)
-    }
 
-    let c = int2Hex(count)
+    
+          
+            
+    
+
+          
+    
+    
+  
+    }
+    let c = Number(count).toString(2)
     if (c.length < COUNT_LENGTH) {
         c = leftZero(c, COUNT_LENGTH - c.length)
     }
-
     count++
-    if (now === lastTime && count > COUNT_MAX) {
-        throw new Error('Overstep the limits')
-    } else if ((now - lastTime) >= 1000 || count >= COUNT_MAX) {
+    if ((now - lastTime) >= 1000) {
         lastTime = now
         count = 0
     }
-
-    return n + c
+    let tmp = '0' + n + c
+    let target = ''
+    const loop = (BASE_LENGTH + COUNT_LENGTH + 1)
+    for (let i = 0; i < loop; i = i + 4) {
+        target += parseInt(tmp.substr(i, 4), 2).toString(16)
+    }
+    return target
 }
-
 function parseUUID(uuid) {
-    const st = uuid.substr(0, BASE_LENGTH)
-    const ct = uuid.substr(BASE_LENGTH, COUNT_LENGTH)
-
+    const loop = (BASE_LENGTH + COUNT_LENGTH + 1) / 4
+    if (loop != uuid.length) {
+        return undefined;
+    }
+    let target = ''
+    for (let i = 0; i < loop; i++) {
+        let hexStr = parseInt(uuid.charAt(i), 16).toString(2)
+        target += leftZero(hexStr, 4 - hexStr.length)
+    }
+    const stamp = target.substr(1, BASE_LENGTH)
+    const count = target.substr(1 + BASE_LENGTH, COUNT_LENGTH)
     return {
         flg: 0,
-        timestamp: hex2Int(st),
-        count: hex2Int(ct)
+        timestamp: parseInt(stamp, 2),
+        count: parseInt(count, 2)
     }
 }
-
 module.exports = {
     uuid: uuid,
     parseUUID: parseUUID
