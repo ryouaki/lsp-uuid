@@ -10,22 +10,22 @@ function int2Hex(t) {
         n = (n - a)/16;
         switch(a) {
           case 10:
-            m.push('A');
+            m.push('a');
             break;
           case 11:
-            m.push('B');
+            m.push('b');
             break;
           case 12:
-            m.push('C');
+            m.push('c');
             break;
           case 13:
-            m.push('D');
+            m.push('d');
             break;
           case 14:
-            m.push('E');
+            m.push('e');
             break;
           case 15:
-            m.push('F');
+            m.push('f');
             break;
           default:
             m.push(a + '');
