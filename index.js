@@ -14,16 +14,6 @@ function uuid(st) {
     let n = now.toString(2)
     if (n.length < BASE_LENGTH) {
         n = leftZero(n, BASE_LENGTH)
-
-    
-          
-            
-    
-
-          
-    
-    
-  
     }
     let c = Number(count).toString(2)
     if (c.length < COUNT_LENGTH) {
