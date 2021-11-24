@@ -1,5 +1,6 @@
 const BASE_LENGTH = 11
 const COUNT_LENGTH = 4
+const COUNT_MAX = 65535 // 0xffff
 
 function int2Hex(t) {
     let n = t;
@@ -81,7 +82,9 @@ function uuid(st) {
     }
 
     count++
-    if ((now - lastTime) >= 1000 || count >= 65535) {
+    if (now === lastTime && count > COUNT_MAX) {
+        throw new Error('Overstep the limits')
+    } else if ((now - lastTime) >= 1000 || count >= COUNT_MAX) {
         lastTime = now
         count = 0
     }
