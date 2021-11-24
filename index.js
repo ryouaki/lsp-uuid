@@ -4,34 +4,34 @@ const COUNT_MAX = 65535 // 0xffff
 
 function int2Hex(t) {
     let n = t;
-    const m = [];
+    let m = '';
     while(n > 0) {
         let a = n % 16;
         n = (n - a)/16;
         switch(a) {
           case 10:
-            m.push('a');
+            m += 'a';
             break;
           case 11:
-            m.push('b');
+            m += 'b';
             break;
           case 12:
-            m.push('c');
+            m += 'c';
             break;
           case 13:
-            m.push('d');
+            m += 'd';
             break;
           case 14:
-            m.push('e');
+            m += 'e';
             break;
           case 15:
-            m.push('f');
+            m += 'f';
             break;
           default:
-            m.push(a + '');
+            m += a + '';
         }
     }
-    return m.reverse().join('');
+    return m;
 }
 
 function hex2Int(hex) {
@@ -93,8 +93,9 @@ function uuid(st) {
 }
 
 function parseUUID(uuid) {
-    const st = uuid.substr(0, BASE_LENGTH)
+    const st = uuid.substr(0, BASE_LENGTH).split('').reverse().join('')
     const ct = uuid.substr(BASE_LENGTH, COUNT_LENGTH)
+
 
     return {
         flg: 0,

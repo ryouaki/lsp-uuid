@@ -3,12 +3,17 @@ A powerful, fast and small uuid generator based on `SnowFlake` for both Browser 
 
 ## Why lsp-uuid
 lsp-uuid has this features below:
-- up to 65535 different ids in one second;
-- keep sequence
+- up to 65536 different ids in one second.
+- keep sequence.
 - id‘s length is 15. less than others.
-- can be deserialized
-- no dependencies
-- less than 1.25kb
+- can be deserialized.
+- no dependencies.
+- less than 1kb.
+
+## Benchmark
+| lsp-uuid | random-32char | random-hex32 | random-32 | random-16 |
+| -- | -- | -- | -- | -- |
+| 55330ms/billion | 214773ms/billion | 116751ms/billion | 50055ms/billion | 60735ms/billion |
 
 ## How to use
 
