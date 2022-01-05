@@ -1,6 +1,6 @@
 {
   "name": "lsp-uuid",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "A uuid generator for both Browser and Nodejs. And keep sequence and get the time when uuid be created.",
   "main": "index.js",
   "module": "dist/lsp-uuid.umd.js",
@@ -29,7 +29,8 @@
     "package.json",
     "LICENSE",
     "README.md",
-    "dist"
+    "dist",
+    "index.d.ts"
   ],
   "keywords": [
     "uuid",
