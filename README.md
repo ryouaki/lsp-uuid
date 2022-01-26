@@ -26,7 +26,7 @@ lsp-uuid has this features below:
 
 ### Using Browser
 ```html
-    <script src="https://unpkg.com/lsp-uuid@1.0.1/dist/lsp-uuid.umd.js"></script>
+    <script src="https://unpkg.com/lsp-uuid@3.1.2/dist/lsp-uuid.umd.js"></script>
 ```
 
 ### For es module
@@ -34,7 +34,7 @@ lsp-uuid has this features below:
     import { uuid, parse, s_uuid } from 'lsp-uuid'
 
     const id = uuid() // 5f095641fe00000
-    const suid = s_uuid() // ab04f349e710000-a1a67d-af79
+    const suid = s_uuid() // ab04f349e710000-0a1a670d-af79
     parse(id) // {flg: 0, timestamp: 1632714164216, count: 0}
 ```
 
