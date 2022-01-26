@@ -1,4 +1,5 @@
 const { uuid } = require('./index')
+const { s_uuid } = require('./server')
 
 function uuid1() {
   return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
@@ -83,3 +84,9 @@ for (let i = 0; i < 10000 * 10000; i++) {
   uuid4(16, 16)
 }
 console.log('uuid4', Date.now() - now, uuid4(16,16))
+
+now = Date.now()
+for (let i = 0; i < 10000 * 10000; i++) {
+  s_uuid()
+}
+console.log('server side', Date.now() - now, s_uuid())

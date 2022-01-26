@@ -1,5 +1,5 @@
 const { expect } = require('@jest/globals');
-const { uuid, parseUUID } = require('./../index');
+const { uuid, parse } = require('./../index');
 
 describe("uuid test", () => {
     it("Generate test 1", () => {
@@ -18,14 +18,14 @@ describe("uuid test", () => {
         }
     })
     
-    it("parseUUID test 3", () => {
-        const target = parseUUID(uuid())
+    it("parse test 3", () => {
+        const target = parse(uuid())
         expect(target).not.toBe(undefined)
     })
 
-    it("parseUUID test 4", () => {
+    it("parse test 4", () => {
         const now = Date.now()
-        let target = parseUUID(uuid(now))
+        let target = parse(uuid(now))
         expect(target).not.toBe(undefined)
         expect(target.flg).toBe(0)
         expect(target.timestamp).toBe(now)
