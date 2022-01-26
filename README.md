@@ -31,7 +31,8 @@ lsp-uuid has this features below:
 
 ### For es module
 ```js
-    import { uuid, parse, s_uuid } from 'lsp-uuid'
+    import { uuid, parse } from 'lsp-uuid'
+    import { s_uuid } from 'lsp-uuid/server'
 
     const id = uuid() // 5f095641fe00000
     const suid = s_uuid() // ab04f349e710000-0a1a670d-af79
