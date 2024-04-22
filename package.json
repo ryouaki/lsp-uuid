@@ -8,7 +8,7 @@
   "scripts": {
     "test": "jest",
     "dev": "jest --watch",
-    "build": "webpack --config webpack.config.js"
+    "build": "export NODE_OPTIONS=--openssl-legacy-provider && webpack --config webpack.config.js"
   },
   "repository": {
     "type": "git",
