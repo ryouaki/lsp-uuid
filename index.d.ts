@@ -2,5 +2,5 @@
 
 export function parse(uuid: any): any;
 
-export function uuid(st: any): any;
+export function uuid(st?: any): any;
 
